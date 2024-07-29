@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+#sidebar-wrapper {
+  width: 250px;
+  height: 100vh; /* Ocupa todo o espaço vertical */
+  padding-left: 10px; /* Padding esquerdo de 10px */
+  background-color: #f4f4f4;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+}
+
+#page-content-wrapper {
+  flex: 1;
+  padding: 20px;
+}
+
+.list-group-item {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.list-group-item:hover {
+  background-color: #ddd;
+}
+
+.ms-3 {
+  margin-left: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
