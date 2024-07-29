@@ -1,1 +1,42 @@
-<p>cad-livros works!</p>
+<h3>Livros</h3>
+<hr/>
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="titulo" placeholder="Título">
+  <input type="text" class="form-control" [(ngModel)]="assunto" placeholder="Assunto">
+  <input type="text" class="form-control" [(ngModel)]="autor" placeholder="Autor">
+  <input type="text" class="form-control" [(ngModel)]="editora" placeholder="Editora">
+  <input type="text" class="form-control" [(ngModel)]="anoPublicacao" placeholder="Ano de Publicação">
+  <button class="btn btn-primary" (click)="pesquisarLivros()">Pesquisar</button>
+</div>
+
+<table class="table table-striped mt-3" *ngIf="livros.length > 0">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Título</th>
+      <th>Editora</th>
+      <th>Edição</th>
+      <th>Ano de Publicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let livro of livros">
+      <td>{{ livro.codL }}</td>
+      <td>{{ livro.titulo }}</td>
+      <td>{{ livro.editora }}</td>
+      <td>{{ livro.edicao }}</td>
+      <td>{{ livro.anoPublicacao }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav *ngIf="totalRecords > pageSize">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="pageNumber === 1">
+      <a class="page-link" (click)="pageNumber = pageNumber - 1; pesquisarLivros()">Anterior</a>
+    </li>
+    <li class="page-item" [class.disabled]="pageNumber * pageSize >= totalRecords">
+      <a class="page-link" (click)="pageNumber = pageNumber + 1; pesquisarLivros()">Próximo</a>
+    </li>
+  </ul>
+</nav>

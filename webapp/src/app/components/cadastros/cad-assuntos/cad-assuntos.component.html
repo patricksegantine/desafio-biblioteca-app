@@ -1,1 +1,21 @@
-<p>cad-assuntos works!</p>
+<h3>Assuntos</h3>
+<hr/>
+<div class="form-group d-flex">
+  <input type="text" class="form-control me-2" [(ngModel)]="descricao" placeholder="Digite o assunto">
+  <button class="btn btn-primary" (click)="pesquisarAssuntos()">Pesquisar</button>
+</div>
+
+<table class="table table-striped mt-3" *ngIf="assuntos.length > 0">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assunto of assuntos">
+      <td>{{ assunto.codAs }}</td>
+      <td>{{ assunto.descricao }}</td>
+    </tr>
+  </tbody>
+</table>

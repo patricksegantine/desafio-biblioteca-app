@@ -1,1 +1,21 @@
-<p>cad-autores works!</p>
+<h3>Autores</h3>
+<hr/>
+<div class="form-group d-flex">
+  <input type="text" class="form-control me-2" [(ngModel)]="nome" placeholder="Digite o nome do autor">
+  <button class="btn btn-primary" (click)="pesquisarAutores()">Pesquisar</button>
+</div>
+
+<table class="table table-striped mt-3" *ngIf="autores.length > 0">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let autor of autores">
+      <td>{{ autor.codAu }}</td>
+      <td>{{ autor.nome }}</td>
+    </tr>
+  </tbody>
+</table>
